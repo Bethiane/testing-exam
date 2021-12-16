@@ -2,21 +2,18 @@ package rw.ac.rca.termOneExam.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import rw.ac.rca.termOneExam.domain.City;
 import rw.ac.rca.termOneExam.dto.CreateCityDTO;
 import rw.ac.rca.termOneExam.service.CityService;
 import rw.ac.rca.termOneExam.utils.APICustomResponse;
+import rw.ac.rca.termOneExam.utils.APIResponse;
 
 @RestController
 @RequestMapping("/api/cities")
@@ -54,4 +51,23 @@ public class CityController {
 		City city = cityService.save(dto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(city);
 	}
+
+//	@PutMapping("/update")
+//	public ResponseEntity<?> editItem(@RequestParam UUID id, @RequestBody CreateCityDTO dto){
+//
+//		City city = cityService.update(id,dto);
+//		if(city !=null){
+//			return ResponseEntity.status(HttpStatus.CREATED).body(city);
+//		}
+//		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new APIResponse(false,"City not found"));
+//
+//	}
+//
+//	@DeleteMapping("/delete")
+//	public ResponseEntity<?> deleteItem(@RequestParam UUID id){
+//		City city = cityService.delete(id);
+//		return  ResponseEntity.ok(city);
+//	}
+
+
 }

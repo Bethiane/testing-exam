@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import java.util.UUID;
 
 @Entity
 public class City {
@@ -38,6 +39,9 @@ public class City {
 		this.fahrenheit = fahrenheit;
 	}
 
+	public City(UUID fromString, String rwanda, int weather, int fahrenheit) {
+	}
+
 
 	public long getId() {
 		return id;
@@ -70,5 +74,6 @@ public class City {
 	public void setFahrenheit(double fahrenheit) {
 		this.fahrenheit = fahrenheit;
 	}
-	
+
+
 }
