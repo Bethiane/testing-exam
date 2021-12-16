@@ -25,7 +25,7 @@ import static org.mockito.Mockito.*;
 
 
         @Test
-        public void noCityWithWeatherTest_success(){
+        public void noCityWithWeather_success(){
             Boolean WithWeatherGreater40 = false;
             when(cityRepositoryMock.findAll()).thenReturn(Arrays.asList(new City("Kigali",10),new City("Musanze",10)));
 
@@ -36,7 +36,7 @@ import static org.mockito.Mockito.*;
         }
 
         @Test
-        public void noCityWithWeatherTest_404(){
+        public void noCityWithWeather_404(){
             Boolean WithWeatherGreater40 = false;
 
             when(cityRepositoryMock.findAll()).thenReturn(Arrays.asList(new City("Kigali",10),
@@ -81,7 +81,7 @@ import static org.mockito.Mockito.*;
         }
 
     @Test
-    public void containsKigaliAndMusanzeCities_success(){
+    public void KigaliAndMusanze_success(){
         Boolean containsCityMUSANZE = false;
         Boolean containsCityKIGALI = false;
 
