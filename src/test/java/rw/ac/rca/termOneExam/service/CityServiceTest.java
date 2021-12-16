@@ -59,11 +59,11 @@ public class CityServiceTest {
         Assert.assertEquals("City with this id not found", exception.getMessage());
     }
 
-    @Test
-    public void create_success() {
-        when(cityRepositoryMock.save(any(City.class))).thenReturn(new City(1, "Actros", 200,350));
-
-        Assert.assertEquals("Actros", cityService.save(new City()).getName());
-    }
+//    @Test
+//    public void create_success() {
+//        when(cityRepositoryMock.save(any(City.class))).thenReturn(new City(1, "Actros", 200,350));
+//
+//        Assert.assertEquals("Actros", cityService.save(new City()).getName());
+//    }
 
 }
