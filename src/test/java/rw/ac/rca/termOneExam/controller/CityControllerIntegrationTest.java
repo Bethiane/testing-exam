@@ -38,15 +38,14 @@ public class CityControllerIntegrationTest {
     public void GetAllCities(){
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<String>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(getRootUrl()+"/api/cities/all",
-                HttpMethod.GET,entity,String.class);
+        ResponseEntity<String> response = restTemplate.exchange("/api/cities/all",HttpMethod.GET,entity,String.class);
         assertNotNull(response.getBody());
     }
 
 
     @Test
     public void GetByIdSuccess(){
-        City city = restTemplate.getForObject(getRootUrl()+"/api/cities/id/101", City.class);
+        City city = restTemplate.getForObject("/api/cities/id/101", City.class);
         System.out.println(city.getName());
         assertNotNull(city);
     }
@@ -68,25 +67,13 @@ public class CityControllerIntegrationTest {
         city.setName("Nyamagabe");
         city.setWeather(18.43);
 
-        ResponseEntity<City> createResponse = restTemplate.postForEntity(getRootUrl()+"/api/cities/add",city,City.class);
+        ResponseEntity<City> createResponse = restTemplate.postForEntity("/api/cities/add",city,City.class);
         assertNotNull(createResponse);
         assertNotNull(createResponse.getBody());
     }
 
-    @Test
-    public void createTestFail(){
-        City city = new City();
-        city.setName("Kigali");
-        city.setWeather(18.43);
 
-        CreateCityDTO createCityDTO = new CreateCityDTO();
-        createCityDTO.setName("Kigali");
-        createCityDTO.setWeather(18.37);
 
-        when(cityService.save(createCityDTO)).thenReturn(city);
-        ResponseEntity<City> createResponse = restTemplate.postForEntity(getRootUrl()+"/api/cities/add",city,City.class);
-        assertEquals("City name " + createCityDTO.getName() + " is registered already",createResponse.getBody().getMessage());
-    }
 
 //
 //    @Test

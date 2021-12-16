@@ -100,6 +100,7 @@ import static org.mockito.Mockito.*;
 
         assertEquals(true, containsCityKIGALI);
         assertEquals(true, containsCityMUSANZE);
+
     }
 
 
